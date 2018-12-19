@@ -2,6 +2,11 @@
 const greeter = require('./module/Greeter.js');
 document.querySelector("#app").appendChild(greeter());
 
+import a from './stu'
+const json = require('./stu');
+
+console.log(json);
+console.log(a);
 // import {firstName} from './module/Lz';
 //
 // console.log(firstName);

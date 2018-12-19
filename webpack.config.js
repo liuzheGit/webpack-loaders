@@ -6,6 +6,20 @@ module.exports = {
     path: __dirname + "/public",//打包后的文件存放的地方
     filename: "bundle.js"//打包后输出文件的文件名
   },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
   devServer: {
     contentBase: "./public",//本地服务器所加载的页面所在的目录
     historyApiFallback: true,//不跳转
