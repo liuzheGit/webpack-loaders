@@ -1,4 +1,5 @@
 {
   "name": "liuzhe",
-  "age": 18
+  "age": 18,
+  "greetText": "stu greetText......"
 }

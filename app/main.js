@@ -1,12 +1,11 @@
 //main.js
-const greeter = require('./module/Greeter.js');
-document.querySelector("#app").appendChild(greeter());
 
-import a from './stu'
-const json = require('./stu');
+// main.js
+import React from 'react';
+import {render} from 'react-dom';
+import Greeter from './Greeter';
+render(<Greeter />, document.getElementById('app'));
 
-console.log(json);
-console.log(a);
 // import {firstName} from './module/Lz';
 //
 // console.log(firstName);
