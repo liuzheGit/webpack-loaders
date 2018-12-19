@@ -2,3 +2,20 @@ body{
   color: red;
   background: #ddd;
 }
+
+.container{
+  border-radius: 3px;
+  transform: translateY(-50px);
+  animation: add 3s infinite;
+  transition: add .3s;
+}
+
+@keyframes add {
+  0%{
+    width: 200px;
+  }
+
+  100%{
+    width: 0;
+  }
+}
