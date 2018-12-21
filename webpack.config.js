@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: 'eval-source-map',
   mode: 'development',
@@ -6,6 +7,12 @@ module.exports = {
     path: __dirname + "/public",//打包后的文件存放的地方
     filename: "bundle.js"//打包后输出文件的文件名
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ],
   module: {
     rules: [
       {
@@ -15,9 +22,22 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
+      // {
+      //   test: /\.css$/,
+      //   use: ['style-loader', 'css-loader', 'postcss-loader']
+      // }
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './public'
+            }
+          },
+          "css-loader",
+          "postcss-loader"
+        ]
       }
     ]
   },
